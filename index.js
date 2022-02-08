@@ -32,8 +32,6 @@ client.on('message', async (channel, tags, message, self) => {
   const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
   const [raw, commandName, argument] = message.match(regexpCommand);
 
-  console.log({ raw, commandName, argument })
-
   const command = commands.find(item => item.name === commandName)
 
   try {
