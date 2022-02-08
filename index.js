@@ -29,14 +29,13 @@ client.connect();
 client.on('message', async (channel, tags, message, self) => {
 
 	if(self) return;
-  const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
-  const [raw, commandName, argument] = message.match(regexpCommand);
-
-  const command = commands.find(item => item.name === commandName)
-
   try {
+    const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
+    const [raw, commandName, argument] = message.match(regexpCommand);
+
+    const command = commands.find(item => item.name === commandName)
     command.execute(client, channel, tags, argument);
-  } catch (error) {
-    console.error(error);
+  } catch (error){
+    console.log(error)
   }
 });

@@ -1,0 +1,62 @@
+{
+  "cassino": {
+    "emotes": [
+      "SeemsGood",
+      "Kreygasm",
+      "NotLikeThis",
+      "<3",
+      "BibleThump",
+      "WutFace",
+      "ResidentSleeper",
+      "VoHiYo",
+      "PogChamp",
+      "LUL",
+      "Kappa",
+      "HeyGuys",
+      "DarkMode",
+      "SabaPing",
+      "Keepo",
+      "SSSsss",
+      "MrDestructoid",
+      "BloodTrail",
+      "FootGoal",
+      "FBBlock",
+      "FBCatch",
+      "PowerUpL",
+      "PowerUpR",
+      "4Head"
+    ],
+    "timeout": [
+      {
+        "firstEmote": "PowerUpL",
+        "secondEmote": "Kappa",
+        "thirdEmote": "PowerUpR",
+        "time": "1s"
+      },
+      {
+        "firstEmote": "Keepo",
+        "secondEmote": "Keepo",
+        "thirdEmote": "Keepo",
+        "time": "5s"
+      },
+      {
+        "firstEmote": "PowerUpL",
+        "secondEmote": "4Head",
+        "thirdEmote": "PowerUpR",
+        "time": "1m"
+      },
+      {
+        "firstEmote": "PogChamp",
+        "secondEmote": "PogChamp",
+        "thirdEmote": "PogChamp",
+        "time": "1h"
+      },
+      {
+        "firstEmote": "PowerUpL",
+        "secondEmote": "DarkMode",
+        "thirdEmote": "PowerUpR",
+        "time": "3h"
+      }
+    ]
+  }
+}
