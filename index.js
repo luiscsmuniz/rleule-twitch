@@ -2,7 +2,7 @@ const tmi = require('tmi.js');
 const loot = require('./commands/loot')
 const BOTNAME = 'Rleule'
 const CHANNELS = ['Valandiil', 'Wig1']
-const TOKEN = 'oauth:7x2ij09h34vdy6p6wlhuzonictbg02'
+const TOKEN = process.env.TOKEN
 
 const opts = {
   identity: {
