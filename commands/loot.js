@@ -1,8 +1,23 @@
 const lootUser = require('../data/loot.json')
 
+const sort = () => {
+  const { maxRange, minRange, loot } = lootUser
+  const x = Math.floor(Math.random() * (maxRange - minRange) + minRange)
+
+  return loot.find(obj => obj.range[0] <= x && obj.range[1] >= x )
+} 
+
 module.exports = {
   name: "loot",
+  cooldown: 2,
   execute(client, channel, tags) {
-    return client.say(channel, `@${tags['display-name']}, você achou um baú do tesouro! :moneybag: Você acaba de encontrar: ${lootUser.loot[Math.floor(Math.random()*lootUser.loot.length)]}`)
+    if (!lootUser.enableCommand) return
+
+    return client.say(
+      channel,
+      lootUser.phrase
+        .replace(':user', tags['display-name'])
+        .replace(':item', sort().item)
+    )
   }
 };

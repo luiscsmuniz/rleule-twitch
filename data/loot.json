@@ -1,18 +1,22 @@
 {
   "loot": [
-    "MEIA VELHA 🧦",
-    "Nada! ☹️",
-    "FOTO DO DOCIL DE CALCINHA 👙",
-    "PC GAMER DE 2010 🖥️",
-    "INSETOS E VERMES 🤢",
-    "COLEÇÃO RARA DE HENTAI 📚",
-    "UMA GEMA 💎 (hããaannnn)",
-    "✨🌟𝘼 𝙇𝙀𝙉𝘿𝘼́𝙍𝙄𝘼 𝘾𝘼𝙇𝘾𝙄𝙉𝙃𝘼 𝘿𝙊 𝘽𝙊𝘽 𝙀𝙎𝙋𝙊𝙉𝙅𝘼🌟✨",
-    "O cabelo perdido de um streamer...",
-    "UMA ARMADILHA! VOCÊ MORREU! 💀",
-    "PACK DO PÉ DO DERSIN 🦶",
-    "MÁQUINA DE COMIDA INFINITA 🍔",
-    "DILDO ROSA 🍆",
-    "REGATA DO KIU 👕"
-  ]
+    {"item": "MEIA VELHA 🧦", "range": [1, 8]},
+    {"item": "Nada! ☹️", "range": [9, 16]},
+    {"item": "FOTO DO DOCIL DE CALCINHA 👙", "range": [17, 24]},
+    {"item": "PC GAMER DE 2010 🖥️", "range": [25, 32]},
+    {"item": "INSETOS E VERMES 🤢", "range": [33, 40]},
+    {"item": "UMA GEMA 💎 (hããaannnn)", "range": [41, 48]},
+    {"item": "O cabelo perdido de um streamer...", "range": [49, 56]},
+    {"item": "UMA ARMADILHA! VOCÊ MORREU! 💀", "range": [57, 64]},
+    {"item": "PACK DO PÉ DO DERSIN 🦶", "range": [65, 72]},
+    {"item": "MÁQUINA DE COMIDA INFINITA 🍔", "range": [73, 80]},
+    {"item": "DILDO ROSA 🍆", "range": [81, 88]},
+    {"item": "REGATA DO KIU 👕", "range": [89, 96]},
+    {"item": "COLEÇÃO RARA DE HENTAI 📚", "range": [97, 99]},
+    {"item": "✨🌟𝘼 𝙇𝙀𝙉𝘿𝘼́𝙍𝙄𝘼 𝘾𝘼𝙇𝘾𝙄𝙉𝙃𝘼 𝘿𝙊 𝘽𝙊𝘽 𝙀𝙎𝙋𝙊𝙉𝙅𝘼🌟✨", "range": [100, 100]}
+  ],
+  "phrase": "@:user, você achou um baú do tesouro! :moneybag: Você acaba de encontrar: :item",
+  "minRange": 1,
+  "maxRange": 100,
+  "enableCommand": true
 }

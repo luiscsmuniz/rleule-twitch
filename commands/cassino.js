@@ -2,6 +2,7 @@ const data = require('../data/cassino.json')
 
 module.exports = {
   name: "cassino",
+  cooldown: 2,
   execute(client, channel, tags) {
     const arrEmote = data.cassino.emotes
     const firstEmote = arrEmote[Math.floor(Math.random() * arrEmote.length)];
@@ -10,10 +11,10 @@ module.exports = {
 
     client.say(channel, `@${tags['display-name']} Seus emotes sorteados: ${firstEmote} ${secondEmote} ${thirdEmote} `);
 
-    const obj = data.cassino.timeout.find(item => item.firstEmote === firstEmote 
-    && item.secondEmote === secondEmote
-    && item.thirdEmote === thirdEmote)
+    const obj = data.cassino.award.find(item => item.emote[0] === firstEmote 
+    && item.emote[1] === secondEmote
+    && item.emote[2] === thirdEmote)
 
-    if (obj) client.say(channel, `/timeout ${tags['display-name']} ${obj.time}`);
+    if (obj) client.say(channel, obj.command.replace(':user', tags['display-name']));
   }
 };

@@ -1,61 +1,60 @@
 {
   "cassino": {
     "emotes": [
-      "SeemsGood",
-      "Kreygasm",
-      "NotLikeThis",
-      "<3",
-      "BibleThump",
-      "WutFace",
-      "ResidentSleeper",
-      "VoHiYo",
-      "PogChamp",
-      "LUL",
-      "Kappa",
-      "HeyGuys",
-      "DarkMode",
-      "SabaPing",
-      "Keepo",
-      "SSSsss",
-      "MrDestructoid",
-      "BloodTrail",
-      "FootGoal",
-      "FBBlock",
-      "FBCatch",
-      "PowerUpL",
-      "PowerUpR",
-      "4Head"
+      "wig1Amor",
+      "wig1Uau1",
+      "wig1Hype",
+      "wig1Oi",
+      "wig1Choro",
+      "wig1FFFF",
+      "wig1Jam",
+      "wig1Nop",
+      "wig1Rage"
     ],
-    "timeout": [
+    "award": [
       {
-        "firstEmote": "PowerUpL",
-        "secondEmote": "Kappa",
-        "thirdEmote": "PowerUpR",
-        "time": "1s"
+        "emote": ["wig1Amor", "wig1Amor", "wig1Amor"],
+        "command": "Dê um trocado pro seu streamer. Ó, Vale Abundante! 🎵"
       },
       {
-        "firstEmote": "Keepo",
-        "secondEmote": "Keepo",
-        "thirdEmote": "Keepo",
-        "time": "5s"
+        "emote": ["wig1Hype", "wig1Hype", "wig1Hype"],
+        "command": "wig1Hype wig1Hype wig1Hype wig1Hype wig1Hype wig1Hype wig1Hype wig1Hype"
       },
       {
-        "firstEmote": "PowerUpL",
-        "secondEmote": "4Head",
-        "thirdEmote": "PowerUpR",
-        "time": "1m"
+        "emote": ["wig1Uau1", "wig1Uau1", "wig1Uau1"],
+        "command": "@:user, você ganhou uma oportunidade de dar sub/bits wig1Uau1"
       },
       {
-        "firstEmote": "PogChamp",
-        "secondEmote": "PogChamp",
-        "thirdEmote": "PogChamp",
-        "time": "1h"
+        "emote": ["wig1Oi", "wig1Oi", "wig1Oi"],
+        "command": "@:user, wig1Oi"
       },
       {
-        "firstEmote": "PowerUpL",
-        "secondEmote": "DarkMode",
-        "thirdEmote": "PowerUpR",
-        "time": "3h"
+        "emote": ["wig1Rage", "wig1Rage", "wig1Rage"],
+        "command": "/timeout @:user 30s"
+      },
+      {
+        "emote": ["wig1Rage", "wig1Rage", "wig1Rage"],
+        "command": "/timeout @:user 30s"
+      },
+      {
+        "emote": ["wig1Rage", "wig1Rage", "wig1Rage"],
+        "command": "/timeout @:user 30s"
+      },
+      {
+        "emote": ["wig1Nop", "wig1Nop", "wig1Nop"],
+        "command": "/timeout @:user 60s"
+      },
+      {
+        "emote": ["wig1Choro", "wig1Choro", "wig1Choro"],
+        "command": "/timeout @:user 90s"
+      },
+      {
+        "emote": ["wig1FFFF", "wig1FFFF", "wig1FFFF"],
+        "command": "/timeout @:user 120s"
+      },
+      {
+        "emote": ["wig1Jam", "wig1Jam", "wig1Jam"],
+        "command": "/timeout @:user 300s"
       }
     ]
   }
