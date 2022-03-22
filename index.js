@@ -65,8 +65,8 @@ client.on("resub", async (channel, username, method, message, userstate) => {
 })
 
 client.on('message', async (channel, tags, message, self) => {
-
 	if(self) return;
+
   try {
     const regexpCommand = new RegExp(/^!([a-zA-Z0-9]+)(?:\W+)?(.*)?/);
     const [raw, commandName, argument] = message.match(regexpCommand);
