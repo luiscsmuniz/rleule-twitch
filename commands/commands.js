@@ -12,6 +12,6 @@ module.exports = {
       commands.push(command);
     }
 
-    return client.say(channel, `@${tags['display-name']}, os comandos são: ${commands.filter(item => item.name !== 'commands').map(item => `!${item.name}`).join(', ')}`)
+    return client.say(channel, `/me @${tags['display-name']}, os comandos são: ${commands.filter(item => item.name !== 'commands').map(item => `!${item.name}`).join(', ')}`)
   }
 };

@@ -1,0 +1,4 @@
+{
+  "command": "/timeout :user 60s",
+  "enableCommand": true
+}

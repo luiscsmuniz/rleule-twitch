@@ -5,6 +5,7 @@ const loot = require('./commands/loot')
 const BOTNAME = 'wig1bot'
 const CHANNELS = ['Valandiil', 'Wig1']
 const TOKEN = process.env.TOKEN
+const keepAlive = require('./server')
 
 const opts = {
   identity: {
@@ -32,6 +33,37 @@ for (const file of commandFiles) {
 
 client.connect();
 
+client.on("subscription", async (channel, username, method, message, userstate) => {
+  client.say(channel, ":user, obrigado pelo sub wig1Hype"
+    .replace(':user', username)
+  )
+})
+
+client.on("cheer", async (channel, tags, message, self) => {
+  client.say(channel, ":user, obrigado pelos :bits bits wig1Hype"
+    .replace(':user', tags['display-name'])
+    .replace(':bits', tags.bits))
+})
+
+client.on("resub", async (channel, username, method, message, userstate) => {
+	const streakMonths = userstate['msg-param-streak-months'];
+	const cumulativeMonths = userstate['msg-param-cumulative-months'];
+	const sharedStreak = userstate['msg-param-should-share-streak'];
+	if(sharedStreak) {
+		return client.say(
+      channel,
+      `:user, obrigado pela inscrição de :streakMonths meses consecutivos wig1Hype`
+        .replace(':user', username))
+        .replace(':streakMonths', streakMonths)
+	}
+
+	return client.say(
+    channel,
+    `:user, obrigado pela inscrição de :cumulativeMonths meses wig1Hype`
+      .replace(':user', username))
+      .replace(':cumulativeMonths', cumulativeMonths)
+})
+
 client.on('message', async (channel, tags, message, self) => {
 
 	if(self) return;
@@ -52,6 +84,8 @@ client.on('message', async (channel, tags, message, self) => {
       command.execute(client, channel, tags, argument);
     }
   } catch (error){
-    console.log(error)
+    // console.log(error)
   }
 });
+
+keepAlive()
