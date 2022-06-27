@@ -1,6 +1,5 @@
 const sim = require('../data/sim.json')
 
-
 module.exports = {
   name: "sim",
   cooldown: 2,

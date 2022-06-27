@@ -15,7 +15,7 @@
     {"item": "COLEÇÃO RARA DE HENTAI 📚", "range": [97, 99]},
     {"item": "✨🌟𝘼 𝙇𝙀𝙉𝘿𝘼́𝙍𝙄𝘼 𝘾𝘼𝙇𝘾𝙄𝙉𝙃𝘼 𝘿𝙊 𝘽𝙊𝘽 𝙀𝙎𝙋𝙊𝙉𝙅𝘼🌟✨", "range": [100, 100]}
   ],
-  "phrase": "@:user, você achou um baú do tesouro! :moneybag: Você acaba de encontrar: :item",
+  "phrase": "@:user, você achou um baú do tesouro! 💰 Você acaba de encontrar: :item",
   "minRange": 1,
   "maxRange": 100,
   "enableCommand": true

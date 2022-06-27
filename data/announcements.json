@@ -1,0 +1,7 @@
+[
+  {
+    "text": "/me Contribua com o quanto quiser para a melhoria das lives: utilizando o comando !pix ou donatando bits wig1Hype",
+    "enabled": true,
+    "cron": "*/30 * * * *"
+  }
+]

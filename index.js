@@ -1,11 +1,14 @@
 const tmi = require('tmi.js');
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const loot = require('./commands/loot')
+const cron = require('node-cron')
 const BOTNAME = 'wig1bot'
 const CHANNELS = ['Valandiil', 'Wig1']
 const TOKEN = process.env.TOKEN
 const keepAlive = require('./server')
+const announcements = require('./data/announcements')
+const live = require('./util/live')
+const { generateToken } = require('./util/livepix')
 
 const opts = {
   identity: {
@@ -16,6 +19,17 @@ const opts = {
 }
 
 const client = new tmi.client(opts);
+
+announcements.forEach(announce => {
+  cron.schedule(announce.cron, async () => {
+    if (announce.enabled && !!await live()) {
+      client.say('Wig1', announce.text)
+    }
+  }, {
+    scheduled: true,
+    timezone: "America/Sao_Paulo"
+  });
+})
 
 const commands = []
 let cooldowns = []
@@ -33,7 +47,18 @@ for (const file of commandFiles) {
 
 client.connect();
 
+client.on("chat", async (channel, userstate, message, self) => {
+  if (self) return null
+
+  if (userstate['custom-reward-id'] === '8130400e-d030-4e11-95d6-5b303702a41f') {
+    client.say(channel, "/timeout :user 60s"
+      .replace(':user', message)
+    )
+  }
+})
+
 client.on("subscription", async (channel, username, method, message, userstate) => {
+  console.log({ channel, username, method, message, userstate })
   client.say(channel, ":user, obrigado pelo sub wig1Hype"
     .replace(':user', username)
   )
@@ -45,7 +70,12 @@ client.on("cheer", async (channel, tags, message, self) => {
     .replace(':bits', tags.bits))
 })
 
+client.on('redeem', (channel, username, rewardType, tags, message) => {
+  console.log({ channel, username, rewardType, tags, message })
+})
+
 client.on("resub", async (channel, username, method, message, userstate) => {
+  console.log({ channel, username, method, message, userstate })
 	const streakMonths = userstate['msg-param-streak-months'];
 	const cumulativeMonths = userstate['msg-param-cumulative-months'];
 	const sharedStreak = userstate['msg-param-should-share-streak'];
@@ -53,15 +83,15 @@ client.on("resub", async (channel, username, method, message, userstate) => {
 		return client.say(
       channel,
       `:user, obrigado pela inscrição de :streakMonths meses consecutivos wig1Hype`
-        .replace(':user', username))
-        .replace(':streakMonths', streakMonths)
+        .replace(':user', username)
+        .replace(':streakMonths', streakMonths))
 	}
 
 	return client.say(
     channel,
     `:user, obrigado pela inscrição de :cumulativeMonths meses wig1Hype`
-      .replace(':user', username))
-      .replace(':cumulativeMonths', cumulativeMonths)
+      .replace(':user', username)
+      .replace(':cumulativeMonths', cumulativeMonths))
 })
 
 client.on('message', async (channel, tags, message, self) => {
@@ -81,6 +111,7 @@ client.on('message', async (channel, tags, message, self) => {
       cooldowns[index].timestamp = Date.now()
 
       const command = commands.find(item => item.name === commandName)
+      // if (!await live()) return
       command.execute(client, channel, tags, argument);
     }
   } catch (error){

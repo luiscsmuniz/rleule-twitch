@@ -4,6 +4,16 @@ const groupBy = (xs, key) => xs.reduce((rv, x) => {
   return rv
 }, {})
 
+const compare = (a, b) => {
+  if ( a.count < b.count ){
+    return -1;
+  }
+  if ( a.count > b.count ){
+    return 1;
+  }
+  return 0;
+}
+
 const table = ({ itens }) => {
 
   const newArray = groupBy(itens, 'name')
@@ -19,10 +29,16 @@ const table = ({ itens }) => {
   <head>
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
   <style>
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    overflow: auto;
   }
   
   td, th {
@@ -36,25 +52,25 @@ const table = ({ itens }) => {
   }
 
   body {
-    font-family: 'Oswald';font-size: 22px;
+    font-family: 'Oswald';font-size: 18px;
     background-image: url('https://wig1bot.valandil.repl.co/twitch.jpeg');
   }
   </style>
   </head>
   <body>
-  
-  <h2 style="color: #fff;">Campeões do cassino do Wig</h2>
-  
-  <table style="color: #fff; width: 40%;">
-    <tr>
-      <th>Nome</th>
-      <th>Quantidade</th>
-    </tr>
-    ${tr.sort((a, b) => {
-        if (a.count > b.count) {
+  <table style="color: #fff;">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${tr.sort((a, b) => {
+        if (a.count < b.count) {
           return 1;
         }
-        if (a.count < b.count) {
+        if (a.count > b.count) {
           return -1;
         }
         return 0;
@@ -64,6 +80,7 @@ const table = ({ itens }) => {
           <td>${item.count}</td>
         </tr>
       `))}
+    </tbody>
   </table>
   
   </body>
